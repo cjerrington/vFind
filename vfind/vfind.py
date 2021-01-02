@@ -1,4 +1,5 @@
 import os
+import sys
 from rich.console import Console
 from rich.table import Table
 
@@ -39,9 +40,25 @@ def get_dir_size(dir_path):
     return f"{round(dir_size/1024/1024, 2)} MB"
 
 
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Simple Script to Locate Virtual Environments")
+    parser.add_argument("-s", "--source", help="Source directory")
 
-console = Console()
-vpath = os.getcwd()
+    args = parser.parse_args()
+    vpath = args.source
 
-console.print(main(vpath))
-console.print("Visit claytonerrington.com for more tools")
+    console = Console()
+
+    if vpath:
+        if os.path.isfile(vpath):
+            console.print(f"[red] Path cannot be a file: {vpath}")
+            sys.exit()
+
+        if os.path.isdir(vpath):
+            console.print(main(vpath))
+            console.print("Visit claytonerrington.com for more tools")
+        else:
+            console.print(f"[red] Path not found: {vpath}")
+    else:
+        parser.print_help()
