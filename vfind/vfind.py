@@ -14,7 +14,7 @@ def main(dir_path):
 
     # Use Rich styles to show progress is being worked on
     # return the table as on object so we do the work here and output on the main thread instead
-    with console.status("[bold green]Scanning for Virtual Environments...", spinner='bouncingBar') as status:
+    with console.status("[bold green]Scanning for Virtual Environments...", spinner='bouncingBar') as status: # skipcq: PYL-W0612
         for root, _, _ in os.walk(dir_path):
             if os.path.isdir(root):
                 # this is the check pattern for windows only
