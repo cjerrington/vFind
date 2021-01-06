@@ -10,6 +10,8 @@ Run `python vfind.py -s "/path/to/look/in"` and once complete you should see the
 
 In the table I also show the folder size of the project. Some virtual environments can get a bit large due to the copying of Python runtimes and new site-packages for the installed pip modules. 
 
+![example](example.png)
+
 Please feel free to run, test, enjoy and update here as needed. 
 
 Let me know if there are any updates or improvements we can use. 
